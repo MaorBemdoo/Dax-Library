@@ -57,25 +57,48 @@ python run.py
 
 ## Contributors
 
-| <img src="https://github.com/MaorBemdoo.png" width="60px"/> |
-|:--:|
-|Github: [@MaorBemdoo](https://github.com/MaorBemdoo)|
-
-| <img src="https://github.com/Eleojo-Asher.png" width="60px"/> |
-|:--:|
-|Github: [@Eleojo-Asher](https://github.com/Eleojo-Asher)|
-
-| <img src="https://github.com/emonzz.png" width="60px"/> |
-|:--:|
-|Github: [@emonzz](https://github.com/emonzz)|
-
-| <img src="https://github.com/stanght5.png" width="60px"/> |
-|:--:|
-|Github: [@stanght5](https://github.com/stanght5)|
-
-| <img src="https://github.com/kevin-katuka.png" width="60px"/> |
-|:--:|
-|Github: [@kevin-katuka](https://github.com/kevin-katuka)|
+<div style="display: flex;gap: 1rem;flex-wrap: wrap;justify-content: center;align-items: center;">
+    <table>
+        <tr>
+            <td align="center"><img src="https://github.com/MaorBemdoo.png" width="60px"/></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">Github: <a href="https://github.com/MaorBemdoo">@MaorBemdoo</a></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td align="center"><img src="https://github.com/Eleojo-Asher.png" width="60px"/></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">Github: <a href="https://github.com/Eleojo-Asher">@Eleojo-Asher</a></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td align="center"><img src="https://github.com/emonzz.png" width="60px"/></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">Github: <a href="https://github.com/emonzz">@emonzz</a></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td align="center"><img src="https://github.com/stanght5.png" width="60px"/></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">Github: <a href="https://github.com/stanght5">@stanght5</a></td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td align="center"><img src="https://github.com/kevin-katuka.png" width="60px"/></td>
+        </tr>
+        <tr>
+            <td style="text-align:center;">Github: <a href="https://github.com/kevin-katuka">@kevin-katuka</a></td>
+        </tr>
+    </table>
+</div>
 
 ## Support
 
