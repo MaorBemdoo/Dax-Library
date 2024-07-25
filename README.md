@@ -25,11 +25,11 @@ An E-library web app to add and search various books from different categories
 git clone https://github.com/MaorBemdoo/Dax-Library
 ```
 - Redirect to Dax-Library folder
-```cmd
+```bash
 cd Dax-Library
 ```
 - Install packages
-```node
+```cmd
 pip install -r requirements.txt
 ```
 - Create a .env file and copy all the variables in .env.examples to it
@@ -37,7 +37,7 @@ pip install -r requirements.txt
 cp .env.example .env
 ```
 - Open the live project on your web browser
-```node
+```cmd
 python run.py
 ```
 
