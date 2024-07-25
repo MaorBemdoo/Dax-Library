@@ -32,6 +32,10 @@ cd Dax-Library
 ```node
 pip install -r requirements.txt
 ```
+- Create a .env file and copy all the variables in .env.examples to it
+```bash
+cp .env.example .env
+```
 - Open the live project on your web browser
 ```node
 python run.py
