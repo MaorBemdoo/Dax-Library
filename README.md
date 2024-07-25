@@ -22,19 +22,19 @@ An E-library web app to add and search various books from different categories
 
 - Fork the project and clone to your local machine
 ```bash
-    git clone https://github.com/MaorBemdoo/Dax-Library
+git clone https://github.com/MaorBemdoo/Dax-Library
 ```
 - Redirect to Dax-Library folder
 ```cmd
-    cd Dax-Library
+cd Dax-Library
 ```
 - Install packages
 ```node
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 - Open the live project on your web browser
 ```node
-    python run.py
+python run.py
 ```
 
 <!-- ## Demo
