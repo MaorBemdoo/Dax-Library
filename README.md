@@ -37,7 +37,7 @@ python -m venv .venv
 ```cmd
 pip install -r requirements.txt
 ```
-- Create a .env file and copy all the variables in .env.examples to it
+- Create a .env file and copy all the variables in .env.example to it
 ```bash
 cp .env.example .env
 ```
