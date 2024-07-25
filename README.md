@@ -64,9 +64,9 @@ An E-library web app to add and search various books from different categories
 |:--:|
 |Github: [@stanght5](https://github.com/stanght5)|
 
-| <img src="https://github.com/kelvin-katuka.png" width="60px"/> |
+| <img src="https://github.com/kevin-katuka.png" width="60px"/> |
 |:--:|
-|Github: [@kelvin-katuka](https://github.com/kelvin-katuka)|
+|Github: [@kevin-katuka](https://github.com/kevin-katuka)|
 
 ## Support
 
