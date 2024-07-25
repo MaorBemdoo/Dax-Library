@@ -3,7 +3,8 @@ An E-library web app to add and search various books from different categories
 
 ## Features
 
-1. Add Books
+1. Add books
+2. Search books
 
 ## Technologies, Languages and Tools used
 
