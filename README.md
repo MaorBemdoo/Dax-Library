@@ -57,7 +57,7 @@ python run.py
 
 ## Contributors
 
-<div style="display: flex;gap: 1rem;flex-wrap: wrap;justify-content: center;align-items: center;">
+<div style="display: inline-flex;gap: 1rem;flex-wrap: wrap;justify-content: center;align-items: center;">
     <table>
         <tr>
             <td align="center"><img src="https://github.com/MaorBemdoo.png" width="60px"/></td>
