@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, send_from_directory
 from flask_sqlalchemy import SQLAlchemy
 from config import Config
 from app.routes import main_bp, auth_bp
@@ -11,6 +11,17 @@ def create_app():
 
     db.init_app(app)
 
+    @app.route('/<filename>')
+    def serve_static(filename):
+        def get_ext(filename):
+            if filename.__contains__("css"):
+                return "css"
+            elif filename.__contains__("js"):
+                return "js"
+            else:
+                return "img"
+        return send_from_directory("static/", f'{get_ext(filename)}/{filename}')
+
     with app.app_context():
         from .models import User, Book
         db.create_all()
@@ -21,5 +32,6 @@ def create_app():
         app.register_blueprint(api_bp, url_prefix='/api')
 
     return app
+
 
 from app.routes import main_routes, auth_routes
