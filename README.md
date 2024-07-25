@@ -28,11 +28,16 @@ git clone https://github.com/MaorBemdoo/Dax-Library
 ```bash
 cd Dax-Library
 ```
+- Create your virtual environment(.venv)
+```cmd
+python -m venv .venv
+.venv\Scripts\activate
+```
 - Install packages
 ```cmd
 pip install -r requirements.txt
 ```
-- Create a .env file and copy all the variables in .env.examples to it
+- Create a .env file and copy all the variables in .env.example to it
 ```bash
 cp .env.example .env
 ```
