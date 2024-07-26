@@ -1,6 +1,6 @@
 import os
 from app.routes import main_bp
-from flask import redirect, render_template, send_from_directory
+from flask import render_template, send_from_directory
 
 def get_ext(filename):
     if filename.__contains__(".css"):
@@ -27,6 +27,6 @@ def serve_template(filename):
 @main_bp.route('/<path:filename>')
 def main(filename):
     if filename.__contains__(".html") or not filename.__contains__("."):
-        serve_template(filename)
+        return serve_template(filename)
     else:
-        server_static(filename)
+        return server_static(filename)
