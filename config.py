@@ -1,7 +1,4 @@
-import os
-from dotenv import load_dotenv, get_key
-
-load_dotenv(".env")
+from dotenv import get_key
 
 class Config:
     SECRET_KEY = get_key(".env", "SECRET_KEY")
