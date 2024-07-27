@@ -25,7 +25,7 @@ def serve_template(filename):
     elif os.path.isfile(filepath):
         return render_template(filename + '.html')
     else:
-        return "404 Not Found", 404
+        return render_template("404.html")
 
 @main_bp.route("/")
 def home_page():
