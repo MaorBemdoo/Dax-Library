@@ -1,3 +1,4 @@
+from flask import json
 from app import db
 from datetime import datetime
 
@@ -11,4 +12,12 @@ class User(db.Model):
     updatedAt = db.Column(db.DateTime, default=datetime.now())
 
     def __repr__(self):
-        return f'{self}'
+        user = {
+            "id": self.id,
+            "username": self.username,
+            "full_name": self.full_name,
+            "createdAt": f'{self.createdAt}',
+            "updatedAt": f'{self.updatedAt}',
+            "books": self.books
+        }
+        return json.dumps(user)

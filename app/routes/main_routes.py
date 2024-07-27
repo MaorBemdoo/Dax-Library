@@ -31,7 +31,7 @@ def serve_template(filename):
         else:
             return render_template(filename + '.html')
     else:
-        return render_template("404.html")
+        return render_template("404.html"), 404
 
 @main_bp.route("/")
 def home_page():
