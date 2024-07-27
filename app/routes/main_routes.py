@@ -23,7 +23,13 @@ def serve_template(filename):
     if os.path.isdir(filepath.removesuffix(".html")) or not filename:
         return render_template(filename + "/index.html")
     elif os.path.isfile(filepath):
-        return render_template(filename + '.html')
+        if filename.endswith('index'):
+            if filename == "index":
+                return redirect("/" + filename.removesuffix("index"))
+            else: 
+                return redirect(filename.removesuffix("index"))
+        else:
+            return render_template(filename + '.html')
     else:
         return render_template("404.html")
 
