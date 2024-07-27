@@ -1,18 +1,9 @@
 from app.models import User
 from app import db
-from sqlalchemy.orm import Session
-from werkzeug.security import generate_password_hash, check_password_hash
 
-def create_user(username, full_name, password):
+def get_all_users():
     try:
-        password_hash = generate_password_hash(password)
-        user = User(username=username, full_name=full_name, password=password_hash)
-        db.session.add(user)
-        db.session.commit()
-        return user
-    except Exception as e:
-        db.session.rollback()
-        raise e
+        return db.session.query()
     finally:
         db.session.close()
 
