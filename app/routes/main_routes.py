@@ -18,11 +18,19 @@ def server_static(filename):
         return "404 Not Found", 404
 
 def serve_template(filename):
+    filename = filename.removesuffix(".html")
     filepath = os.path.join(main_bp.root_path[:-6], 'templates', filename + '.html')
-    if os.path.isfile(filepath):
+    if os.path.isdir(filepath.removesuffix(".html")) or not filename:
+        print(filename + "index.html")
+        return render_template(filename + "/index.html")
+    elif os.path.isfile(filepath):
         return render_template(filename + '.html')
     else:
         return "404 Not Found", 404
+
+@main_bp.route("/")
+def home_page():
+    return render_template("/index.html")
 
 @main_bp.route('/<path:filename>')
 def main(filename):
