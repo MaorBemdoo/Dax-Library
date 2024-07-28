@@ -8,6 +8,7 @@ def register(username, full_name, password):
         user = User(username=username, full_name=full_name, password=password_hash)
         db.session.add(user)
         db.session.commit()
+        db.session.refresh(user)
         return user
     except Exception as e:
         db.session.rollback()

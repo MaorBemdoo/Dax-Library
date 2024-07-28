@@ -12,7 +12,7 @@ def register():
     password = data.get('password')
     if not username or not full_name or not password:
         return jsonify({'message': 'Username, Full Name and Password fields are required'}), 400
-    if User.query.filter(User.username == username).first():
+    if User.query.filter_by(username = username).first():
         return jsonify({'message': 'Username already exists'}), 409
     if len(password) <= 6:
         return jsonify({'message': "Password must me greater than 6 characters"}), 400
