@@ -24,5 +24,8 @@ def create_app():
 
     return app
 
+@login_manager.user_loader
+def load_user(user_id):
+    return db.query().get(int(user_id))
 
 from app.routes import main_routes
