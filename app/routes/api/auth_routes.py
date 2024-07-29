@@ -3,6 +3,8 @@ from app.models.user import User
 from app import db
 from . import api_bp
 from app.services.auth_services import register as create_user
+from werkzeug.security import check_password_hash
+from flask_login import login_user
 
 @api_bp.route('/register', methods=['POST'])
 def register():
@@ -24,8 +26,15 @@ def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
+    user = User.query.filter_by(username=username).first()
     if not username or not password:
         return jsonify({'message': 'Username and Password fields are required'}), 400
-    # if 
-    (username, password)
-    return jsonify({'message': 'Logged in successfully'})
+    if not user:
+        return jsonify({'message': 'Username does not exist'}), 400
+    if not check_password_hash(user.password, password):
+        return jsonify({'message': 'Incorrect password'}), 400
+    try:
+        login_user(user)
+        return jsonify({'message': 'Logged in successfully'})
+    except Exception as e:
+        return jsonify({'message': 'Error Logging in'}), 500
