@@ -3,7 +3,7 @@ from app import db
 
 def get_all_users():
     try:
-        return db.session.query()
+        return db.session.query(User)
     finally:
         db.session.close()
 

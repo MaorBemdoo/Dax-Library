@@ -1,6 +1,7 @@
 from app.models.user import User
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
+from flask_login import login_user
 
 def register(username, full_name, password):
     try:
@@ -16,8 +17,9 @@ def register(username, full_name, password):
     finally:
         db.session.close()
 
-# def login(username, password):
-#     try:
-        
-#     finally:
-#         db.session.close()
+def login(username, password):
+    try:
+        user = db.session.query(User).filter_by(username=username).first()
+        login_user(user)
+    finally:
+        db.session.close()

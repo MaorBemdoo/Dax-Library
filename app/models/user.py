@@ -1,8 +1,9 @@
 from flask import json
+from flask_login import UserMixin
 from app import db
 from datetime import datetime
 
-class User(db.Model):
+class User(db.Model, UserMixin):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(30), nullable=False)

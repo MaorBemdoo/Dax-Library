@@ -24,5 +24,8 @@ def login():
     data = request.get_json()
     username = data.get('username')
     password = data.get('password')
+    if not username or not password:
+        return jsonify({'message': 'Username and Password fields are required'}), 400
+    # if 
     (username, password)
     return jsonify({'message': 'Logged in successfully'})
