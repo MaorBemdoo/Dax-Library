@@ -1,0 +1,33 @@
+body {
+    font-family: "Bradley Hand ITC", "Times New Roman";
+    margin: 0;
+    padding: 0;
+    background-color: #3e2723;
+    color: #fff;
+    background-image: url("Big foot.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: grid;
+    place-content: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.redirect-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #90EE90;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+
+}
+
+.redirect-button:hover {
+    background-color: #76C776;
+
+}
