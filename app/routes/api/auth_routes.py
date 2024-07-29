@@ -4,7 +4,7 @@ from app import db
 from . import api_bp
 from app.services.auth_services import register as create_user
 from werkzeug.security import check_password_hash
-from flask_login import login_user
+from flask_login import login_required, login_user, logout_user
 
 @api_bp.route('/register', methods=['POST'])
 def register():
@@ -37,4 +37,13 @@ def login():
         login_user(user)
         return jsonify({'message': 'Logged in successfully'})
     except Exception as e:
-        return jsonify({'message': 'Error Logging in'}), 500
+        return jsonify({'message': 'Error Logging in', 'error': e.args}), 500
+
+@api_bp.route('/logout')
+@login_required
+def logout():
+    try:
+        logout_user()
+        return jsonify({'message': 'Logged out successfully'})
+    except Exception as e:
+        return jsonify({'message': 'Error logging out', 'error': e.args}), 500

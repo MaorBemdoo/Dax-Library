@@ -18,14 +18,15 @@ def create_app():
         from .models import User, Book
         db.create_all()
 
+        
+        @login_manager.user_loader
+        def load_user(user_id):
+            return User.query.get(int(user_id))
+
         from .routes.api import api_bp
         app.register_blueprint(api_bp, url_prefix='/api')
         app.register_blueprint(main_bp)
 
     return app
-
-@login_manager.user_loader
-def load_user(user_id):
-    return db.query().get(int(user_id))
 
 from app.routes import main_routes
