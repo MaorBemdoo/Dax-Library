@@ -5,6 +5,7 @@ from . import api_bp
 from app.services.auth_services import register as create_user
 from werkzeug.security import check_password_hash
 from flask_login import current_user, login_required, login_user, logout_user
+from constant import user_dict
 
 @api_bp.route('/register', methods=['POST'])
 def register():
@@ -52,13 +53,6 @@ def logout():
 @login_required
 def getme():
     try:
-        return jsonify({
-            "id": current_user.id,
-            "username": current_user.username,
-            "full_name": current_user.full_name,
-            "createdAt": f'{current_user.createdAt}',
-            "updatedAt": f'{current_user.updatedAt}',
-            "books": current_user.books
-        })
+        return jsonify(user_dict(current_user))
     except Exception as e:
         return jsonify({'message': 'Error getting user info', 'error': e.args}), 500
