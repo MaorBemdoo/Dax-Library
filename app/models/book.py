@@ -1,3 +1,4 @@
+from datetime import datetime
 from app import db
 
 class Book(db.Model):
@@ -6,7 +7,6 @@ class Book(db.Model):
     author = db.Column(db.String(30), nullable=False)
     title = db.Column(db.String(64))
     content = db.Column(db.String(1024))
+    createdAt = db.Column(db.DateTime, default=datetime.now())
+    updatedAt = db.Column(db.DateTime, default=datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
-
-    def __repr__(self):
-        return f'{self}'
