@@ -9,12 +9,12 @@ def book_dict(book):
         "user_id": book.user_id
     }
 
-def user_dict(user): 
+def user_dict(user, type): 
     return {
         "id": user.id,
         "username": user.username,
         "full_name": user.full_name,
         "createdAt": f'{user.createdAt}',
         "updatedAt": f'{user.updatedAt}',
-        "books": [book_dict(book) for book in user.books]
+        "books": [(book_dict(book) if type == "all" else book.id) for book in user.books]
     }

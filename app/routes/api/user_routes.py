@@ -7,7 +7,7 @@ from . import api_bp
 @api_bp.route('/users', methods=['GET'])
 def users():
     all_users = get_all_users()
-    return jsonify({"data": [user_dict(user) for user in all_users]})
+    return jsonify({"data": [user_dict(user, "single") for user in all_users]})
 
 @api_bp.route('/users/<user_id>', methods=['GET', 'DELETE'])
 def user_route(user_id):
@@ -15,7 +15,7 @@ def user_route(user_id):
     if request.method == 'GET':
         if not user:
             return jsonify({"message": "User not found"}), 404
-        return jsonify(user_dict(user))
+        return jsonify(user_dict(user, "all"))
     else:
         if not user:
             return jsonify({"message": "User not found"}), 404
