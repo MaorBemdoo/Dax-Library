@@ -2,7 +2,7 @@ from flask import jsonify, request
 from app.models.book import Book
 from app import db
 from app.models.user import User
-from constant import book_dict
+from app.constant import book_dict
 from . import api_bp
 from app.services.book_services import (
     create_book,

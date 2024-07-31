@@ -1,7 +1,7 @@
 from flask import jsonify, request
 from app.models.user import User
 from app.services.user_services import delete_user, get_all_users
-from constant import user_dict
+from app.constant import user_dict
 from . import api_bp
 
 @api_bp.route('/users', methods=['GET'])
