@@ -46,6 +46,21 @@ main {
     padding: 2rem;
 }
 
+#alert{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    opacity: 0;
+    padding: 1.3rem;
+    border-radius: 6px;
+    transition: all 250ms ease-in
+}
+
+#alert.active{
+    left: 40px;
+    opacity: 1;
+}
+
 #modal {
     display: none;
     position: fixed;

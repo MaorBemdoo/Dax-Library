@@ -1,7 +1,16 @@
 const logoutBtn = document.getElementById("logout")
 const modal = document.getElementById("modal")
+const alertDiv = document.getElementById("alert")
 const welcomeP = document.getElementById("welcome")
 const addBookBtn = document.getElementsByClassName("add-button")[0]
+
+const activateAndDeactivateAlert = () => {
+    alertDiv.classList.add("active")
+    modal.style.display = "none"
+    setTimeout(() => {
+        alertDiv.classList.remove("active")
+    }, 5000)
+}
 
 modal.addEventListener("click", (e) => {
     modal.style.display = "none"
@@ -21,9 +30,15 @@ modal.querySelectorAll(".cancel").forEach(btn => {
 
 modal.querySelector(".logout button").addEventListener("click", (e) => {
     fetch("/api/logout").then(res => res.json()).then(data => {
-        
+        alertDiv.innerText = data.message
+        alertDiv.style.backgroundColor = "green"
+        activateAndDeactivateAlert()
+        location.assign("/login")
     }).catch(err => {
-        console.log(err.message)
+        console.log(err)
+        alertDiv.innerText = err.message
+        alertDiv.style.backgroundColor = "red"
+        activateAndDeactivateAlert()
     })
 })
 
