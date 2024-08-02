@@ -1,37 +1,52 @@
-document.getElementById('searchBar').addEventListener('keyup', (e) => {
-    const searchValue = e.target.value.toLowerCase();
-    const items = document.querySelectorAll('.grid-item');
+const booksContainer = document.getElementById("gridContainer")
+const searchBar = document.getElementById("searchBar")
 
-    items.forEach(function(item) {
-        const text = item.textContent.toLowerCase();
-        if (text.includes(searchValue)) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
-            const getBooks = async() => {
-                const res = await fetch(`api/books?q=${searchValue}`)
-                const data = await res.json()
-                return data
+fetch(`/api/books`)
+        .then(res => res.json())
+        .then(({data}) => {
+            if(data.length == 0){
+                booksContainer.innerHTML = "<h1>No books yet</h1>"
+                return
             }
-            const main = document.getElementsByTagName("main")[0]
-            getBooks().then(data => {
-                main.innerHTML = ""
-                data.data.forEach(book => {
-                    main.innerHTML += `
-                        <div class="book">
-                            <h3>${book.title}<h3>
-                            <p>${book.content}</p>
-                            by <i>${book.author}</i>
-                        </div>
-                    `
-                });
-            }).catch(err => {
-                main.innerHTML = `
-                    <div>
-                        An Error Ocuured
+    
+            data.forEach(book => {
+                booksContainer.innerHTML += `
+                    <div class="grid-item">
+                        <h3>${book.title}</h3>
+                        <p>${book.content}</p>
+                        <p>By ${book.author}</p>
                     </div>
                 `
             })
-        }
-    });
-});
+        })
+        .catch(err => {
+            console.log(err)
+        })
+
+searchBar.addEventListener("keyup", (e) => {
+    const searchValue = searchBar.value
+    fetch(`/api/books?q=${searchValue}`)
+        .then(res => res.json())
+        .then(({data}) => {
+            if(data.length == 0){
+                booksContainer.innerHTML = `<h1>No books for <b>${searchValue}</b> </h1>`
+                return
+            }
+
+            booksContainer.innerHTML = ""
+            
+            data.forEach(book => {
+                booksContainer.innerHTML += `
+                    <div class="grid-item">
+                        <h3>${book.title}</h3>
+                        <p>${book.content}</p>
+                        <p>By ${book.author}</p>
+                    </div>
+                `
+            })
+        })
+        .catch(err => {
+            console.log(err)
+        })
+})
+
