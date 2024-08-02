@@ -24,6 +24,9 @@ fetch(`/api/books`)
         })
 
 searchBar.addEventListener("keyup", (e) => {
+    searchBar.addEventListener("load", (e) => {
+        booksContainer.innerHTML = "Loading..."
+    })
     const searchValue = searchBar.value
     fetch(`/api/books?q=${searchValue}`)
         .then(res => res.json())
