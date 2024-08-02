@@ -68,11 +68,10 @@ main {
     position: absolute;
     top: 0;
     right: 0;
-    /* width: 50px;
-    height: 50px; */
-    /* background-color: black; */
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    /* transform: translate(50%, -50%); */
+    cursor: pointer;
 }
 
 #modal .logout {
@@ -80,7 +79,7 @@ main {
     align-items: center;
     text-align: center;
     width: 300px;
-    height: 150px;
+    height: 100px;
 }
 
 #modal .logout div:last-child {
@@ -114,12 +113,6 @@ main {
     border-radius: 4px;
     padding: 1rem;
     text-align: center;
-}
-
-.book img {
-    max-width: 100%;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 1rem;
 }
 
 .book h3 {

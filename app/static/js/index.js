@@ -5,17 +5,18 @@ const addBookBtn = document.getElementsByClassName("add-button")[0]
 
 modal.addEventListener("click", (e) => {
     modal.style.display = "none"
-    // modal.getElementsByClassName("cancel").forEach(btn => {
-    //     btn.addEventListener("click", (e) => {
-    //         modal.style.display = "none"
-    //     })
-    // })
-    modal.childNodes.forEach(child => {
-        child.addEventListener("click", (e) => {
-            e.stopPropagation()
-        })
-    })
+})
 
+modal.childNodes.forEach(child => {
+    child.addEventListener("click", (e) => {
+        e.stopPropagation()
+    })
+})
+
+modal.querySelectorAll(".cancel").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        modal.style.display = "none"
+    })
 })
 
 modal.querySelector(".logout button").addEventListener("click", (e) => {
