@@ -4,7 +4,9 @@ const alertDiv = document.getElementById("alert")
 const welcomeP = document.getElementById("welcome")
 const addBookBtn = document.getElementsByClassName("add-button")[0]
 
-const activateAndDeactivateAlert = () => {
+const activateAndDeactivateAlert = (text, type) => {
+    alertDiv.innerText = text
+    alertDiv.style.backgroundColor = type == "success" ? "green" : type == "error" ? "red" : "blue"
     alertDiv.classList.add("active")
     modal.style.display = "none"
     setTimeout(() => {
@@ -29,16 +31,14 @@ modal.querySelectorAll(".cancel").forEach(btn => {
 })
 
 modal.querySelector(".logout button").addEventListener("click", (e) => {
-    fetch("/api/logout").then(res => res.json()).then(data => {
-        alertDiv.innerText = data.message
-        alertDiv.style.backgroundColor = "green"
-        activateAndDeactivateAlert()
+    fetch("/api/logout").then(res => {
+        return res.json()
+    }).then(data => {
+        activateAndDeactivateAlert(data.message, "success")
         location.assign("/login")
     }).catch(err => {
         console.log(err)
-        alertDiv.innerText = err.message
-        alertDiv.style.backgroundColor = "red"
-        activateAndDeactivateAlert()
+        activateAndDeactivateAlert(err.message, "error")
     })
 })
 
