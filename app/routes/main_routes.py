@@ -1,6 +1,7 @@
 import os
 from app.routes import main_bp
 from flask import redirect, render_template, send_from_directory
+from flask_login import current_user
 
 def get_ext(filename):
     if filename.__contains__(".css"):
@@ -35,7 +36,9 @@ def serve_template(filename):
 
 @main_bp.route("/")
 def home_page():
-    return render_template("/index.html")
+    if current_user.is_authenticated:
+        return render_template("/index.html", current_user=current_user)
+    return redirect("/login")
 
 @main_bp.route('/<path:filename>')
 def main(filename):

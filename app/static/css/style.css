@@ -1,59 +1,44 @@
 body {
-    font-family: "Bradley Hand ITC", "Times New Roman";
     margin: 0;
     padding: 0;
-    background-color: #3e2723;
-    color: #fff;
-    background-image: url("Big foot.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    box-sizing: border-box;
 }
 
-/* Header */
-header {
-    background-color: rgba(63, 46, 40, 0.9);
+a {
     color: white;
-    padding: 1rem 0;
-    text-align: center;
-}
-
-header h1 {
-    margin: 0;
-    font-size: 3.0rem;
-    font-family: "Chiller", "Tahoma";
-}
-
-/* Navigation Bar */
-nav {
-    background-color: rgba(51, 34, 29, 0.9);
-}
-
-nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-}
-
-nav ul li {
-    display: inline-block;
-}
-
-nav ul li a {
-    display: block;
-    padding: 14px 20px;
-    color: white;
-    text-align: center;
     text-decoration: none;
 }
 
-nav ul li a:hover {
-    background-color: #5d4037;
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(63, 46, 40, 0.9);
+    color: white;
+    padding: 1rem;
+    text-align: center;
 }
 
-/* Main Content */
+header img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+header div {
+    display: flex;
+    gap: 2rem;
+}
+
+header button {
+    border: none;
+    background-color: #3e2723;
+    color: white;
+    border-radius: 4px;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
 main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -61,7 +46,68 @@ main {
     padding: 2rem;
 }
 
-/* Book Section */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    place-content: center;
+}
+
+#modal > * {
+    display: none;
+    position: relative;
+    border-radius: 6px;
+    background-color: white;
+}
+
+#modal .cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    /* width: 50px;
+    height: 50px; */
+    /* background-color: black; */
+    border-radius: 50%;
+    /* transform: translate(50%, -50%); */
+}
+
+#modal .logout {
+    display: none;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 150px;
+}
+
+#modal .logout div:last-child {
+    width: 100%;
+    text-align: center;
+}
+
+#modal .logout button {
+    border: none;
+    background-color: #3e2723;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+}
+
+#modal .logout button:hover {
+    background-color: #795548;
+}
+
+.no-book{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    font-size: 2rem;
+}
+
 .book {
     background-color: rgba(255, 255, 255, 0.8);
     border: 1px solid #ddd;
@@ -87,7 +133,6 @@ main {
     color: #3e2723;
 }
 
-/* Add Button */
 .add-button {
     display: flex;
     justify-content: center;
@@ -100,8 +145,8 @@ main {
     height: 60px;
     font-size: 2rem;
     cursor: pointer;
-    position: fixed;
-    bottom: 20px;
+    position: absolute;
+    bottom: calc(3rem + 40px);
     right: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s;
@@ -111,14 +156,14 @@ main {
     background-color: #795548;
 }
 
-/* Footer */
 footer {
     background-color: rgba(51, 34, 29, 0.9);
     color: white;
     text-align: center;
     padding: 1rem 0;
-    position: relative;
+    position: fixed;
     width: 100%;
+    height: 3rem;
     bottom: 0;
 }
 
@@ -156,4 +201,3 @@ footer {
         float: none;
     }
 }
-

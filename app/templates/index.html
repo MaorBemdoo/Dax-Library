@@ -1,39 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overview - Dax</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="./logo.png">
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Overview - Dax</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" href="./logo.png">
+    </head>
+    <body>
 
-    <header>
-        <h1>Dax</h1>
-    </header>
+        <header>
+            <img src="./logo.png" alt="logo">
+            <nav>
+                <a href="/search">Discover</a>
+            </nav>
+            <div>
+                <p id="welcome">Welcome, {{current_user.full_name}}</p>
+                <button id="logout">Logout</button>
+            </div>
+        </header>
 
-    <nav>
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#books">Books</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+        <div id="modal">
+            <div class="logout">
+                <div class="cancel">x</div>
+                <div>Are you sure you want to logout?</div>
+                <div>
+                    <button>Logout</button>
+                </div>
+            </div>
+            <div id="delete">
+                <div class="cancel">x</div>
+            </div>
+            <div id="create">
+                <div class="cancel">x</div>
+            </div>
+            <div id="edit">
+                <div class="cancel">x</div>
+            </div>
+        </div>
 
-    <main>
-        <div class="loading-placeholder"></div>
-        <div class="loading-placeholder"></div>
-        <div class="loading-placeholder"></div>
-        <div class="loading-placeholder"></div>
-    </main>
+        <main>
+            {% if current_user.books == [] %}
+                <div class="no-book">
+                    You Don't have any books
+                </div>
+            {% else %}
+                {% for book in current_user.books %}
+                    <div class="book">
+                        <h3>{{book.title}}</h3>
+                        <p>{{book.content}}</p>
+                        <p>By {{book.author}}</p>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <button class="add-button">+</button>
+        </main>
 
-    <button class="add-button">+</button>
 
-    <footer>
-        <p>&copy; 2024 Dax Library. All rights reserved.</p>
-    </footer>
-    <script src="index.js"></script>
-</body>
+        <footer>
+            <p>&copy; 2024 Dax Library. All rights reserved.</p>
+        </footer>
+        <script src="index.js"></script>
+    </body>
 </html>
