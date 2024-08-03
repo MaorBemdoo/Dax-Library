@@ -81,7 +81,7 @@ fetch(`/api/books`)
             console.log(err)
         })
 
-searchBar.addEventListener("keyup", (e) => {
+searchBar.addEventListener("input", (e) => {
     const searchValue = searchBar.value
     booksContainer.innerHTML = `
         <div class="loading-placeholder"></div>
