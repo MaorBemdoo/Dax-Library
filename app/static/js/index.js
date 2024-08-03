@@ -16,6 +16,10 @@ const activateAndDeactivateAlert = (text, type) => {
 
 modal.addEventListener("click", (e) => {
     modal.style.display = "none"
+    modal.children.logout.style.display = "none"
+    modal.children.delete.style.display = "none"
+    modal.children.create.style.display = "none"
+    modal.children.edit.style.display = "none"
 })
 
 modal.childNodes.forEach(child => {
@@ -27,6 +31,10 @@ modal.childNodes.forEach(child => {
 modal.querySelectorAll(".cancel").forEach(btn => {
     btn.addEventListener("click", (e) => {
         modal.style.display = "none"
+        modal.children.logout.style.display = "none"
+        modal.children.delete.style.display = "none"
+        modal.children.create.style.display = "none"
+        modal.children.edit.style.display = "none"
     })
 })
 
@@ -45,4 +53,9 @@ modal.querySelector("#logout button").addEventListener("click", (e) => {
 logoutBtn.addEventListener("click", (e) => {
     modal.style.display = "grid"
     document.getElementById("logout").style.display = "grid"
+})
+
+addBookBtn.addEventListener("click", (e) => {
+    modal.style.display = "grid"
+    document.getElementById("create").style.display = "grid"
 })

@@ -78,6 +78,7 @@ main {
     height: 100vh;
     background-color: rgba(0, 0, 0, 0.4);
     place-content: center;
+    z-index: 3;
 }
 
 #modal > * {
