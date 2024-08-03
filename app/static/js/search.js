@@ -97,7 +97,7 @@ searchBar.addEventListener("input", (e) => {
         .then(res => res.json())
         .then(({data}) => {
             if(data.length == 0){
-                booksContainer.innerHTML = `<h1>No books for <b>${searchValue}</b> </h1>`
+                booksContainer.innerHTML = `<h1 style="grid-column: span 3;text-align: center;">No books for <b>"${searchValue}"</b></h1>`
                 return
             }
 
