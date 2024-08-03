@@ -61,6 +61,7 @@ main {
     opacity: 0;
     padding: 1.3rem;
     border-radius: 6px;
+    z-index: 10;
     transition: all 250ms ease-in
 }
 
@@ -86,6 +87,7 @@ main {
     position: relative;
     border-radius: 6px;
     background-color: white;
+    border: .5px solid #3e2723;
 }
 
 #modal .cancel {
@@ -96,10 +98,10 @@ main {
     height: 40px;
     border-radius: 50%;
     cursor: pointer;
+    transform: translate(50%, -50%);
 }
 
 #modal #logout {
-    display: none;
     align-items: center;
     text-align: center;
     width: 300px;
@@ -121,6 +123,58 @@ main {
 }
 
 #modal #logout button:hover {
+    background-color: #795548;
+}
+
+#modal #create{
+    width: 400px;
+    text-align: center;
+}
+
+#modal #create input{
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #3e2723;
+    padding: .7rem;
+    font-size: 1.2rem;
+}
+
+#modal #create input:focus{
+    border: 1px solid #3e2723;
+}
+
+#modal #create input:nth-child(2){
+    background-color: lightgrey;
+}
+
+#modal #create textarea{
+    resize: none;
+    height: 200px;
+    border: none;
+    border-bottom: 1px solid #3e2723;;
+    outline: none;
+    padding: .7rem;
+    font-size: 1.2rem;
+}
+
+#modal #create textarea:focus{
+    border: 1px solid #3e2723;
+}
+
+#modal #create button{
+    border: none;
+    width: 120px;
+    background-color: #3e2723;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin: .5rem auto;
+}
+
+#modal #create button:hover{
     background-color: #795548;
 }
 
