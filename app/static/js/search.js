@@ -69,7 +69,7 @@ fetch(`/api/books`)
     
             data.forEach(book => {
                 booksContainer.innerHTML += `
-                    <a href="/books/${book.id}"><div class="grid-item">
+                    <a href="/books/${book.id}" class="grid-item"><div>
                         <h3>${book.title}</h3>
                         <p>${book.content.slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
@@ -105,7 +105,7 @@ searchBar.addEventListener("input", (e) => {
             
             data.forEach(book => {
                 booksContainer.innerHTML += `
-                    <a href="/books/${book.id}"><div class="grid-item">
+                    <a href="/books/${book.id}" class="grid-item"><div>
                         <h3>${book.title}</h3>
                         <p>${book.content.slice(0, 20).slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
