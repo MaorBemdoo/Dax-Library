@@ -1,26 +1,30 @@
 body {
-    font-family: "Bradley Hand ITC", "Times New Roman";
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #3e2723;
-    color: #fff;
-    background-image: url("Big foot.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    display: grid;
-    place-content: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     height: 100vh;
     text-align: center;
 }
 
+h1{
+    font-size: 13rem;
+    margin: 0;
+}
+
+p{
+    font-size: 2rem;
+}
+
 .redirect-button {
-    margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-    background-color: #90EE90;
-    color: #fff;
+    background-color: #8d6e63;
+    color: white;
     border: none;
     border-radius: 5px;
     text-decoration: none;
@@ -28,6 +32,6 @@ body {
 }
 
 .redirect-button:hover {
-    background-color: #76C776;
+    background-color: #795548;
 
 }
