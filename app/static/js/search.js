@@ -71,7 +71,7 @@ fetch(`/api/books`)
                 booksContainer.innerHTML += `
                     <div class="grid-item">
                         <h3>${book.title}</h3>
-                        <p>${book.content}</p>
+                        <p>${book.content.slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
                     </div>
                 `
@@ -107,7 +107,7 @@ searchBar.addEventListener("input", (e) => {
                 booksContainer.innerHTML += `
                     <div class="grid-item">
                         <h3>${book.title}</h3>
-                        <p>${book.content}</p>
+                        <p>${book.content.slice(0, 20).slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
                     </div>
                 `
