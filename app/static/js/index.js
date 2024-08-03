@@ -1,4 +1,4 @@
-const logoutBtn = document.getElementById("logout")
+const logoutBtn = document.getElementsByClassName("logout-button")[0]
 const modal = document.getElementById("modal")
 const alertDiv = document.getElementById("alert")
 const welcomeP = document.getElementById("welcome")
@@ -30,7 +30,7 @@ modal.querySelectorAll(".cancel").forEach(btn => {
     })
 })
 
-modal.querySelector(".logout button").addEventListener("click", (e) => {
+modal.querySelector("#logout button").addEventListener("click", (e) => {
     fetch("/api/logout").then(res => {
         return res.json()
     }).then(data => {
@@ -44,5 +44,5 @@ modal.querySelector(".logout button").addEventListener("click", (e) => {
 
 logoutBtn.addEventListener("click", (e) => {
     modal.style.display = "grid"
-    modal.getElementsByClassName("logout")[0].style.display = "grid"
+    document.getElementById("logout").style.display = "grid"
 })

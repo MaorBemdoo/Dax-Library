@@ -97,7 +97,7 @@ main {
     cursor: pointer;
 }
 
-#modal .logout {
+#modal #logout {
     display: none;
     align-items: center;
     text-align: center;
@@ -105,12 +105,12 @@ main {
     height: 100px;
 }
 
-#modal .logout div:last-child {
+#modal #logout div:last-child {
     width: 100%;
     text-align: center;
 }
 
-#modal .logout button {
+#modal #logout button {
     border: none;
     background-color: #3e2723;
     border-radius: 4px;
@@ -119,7 +119,7 @@ main {
     color: white;
 }
 
-#modal .logout button:hover {
+#modal #logout button:hover {
     background-color: #795548;
 }
 

@@ -16,14 +16,14 @@
             </nav>
             <div>
                 <p id="welcome">Welcome, {{current_user.full_name}}</p>
-                <button id="logout">Logout</button>
+                <button class="logout-button">Logout</button>
             </div>
         </header>
 
         <div id="alert"></div>
 
         <div id="modal">
-            <div class="logout">
+            <div id="logout">
                 <img src="./close_icon.png" class="cancel">
                 <div>Are you sure you want to logout?</div>
                 <div>
@@ -35,6 +35,10 @@
             </div>
             <div id="create">
                 <img src="./close_icon.png" class="cancel">
+                <input type="text" placeholder="Title">
+                <textarea placeholder="Content"></textarea>
+                <input type="text" placeholder="By...">
+                <button>Submit</button>
             </div>
             <div id="edit">
                 <img src="./close_icon.png" class="cancel">
