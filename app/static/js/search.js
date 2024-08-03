@@ -1,9 +1,21 @@
 const booksContainer = document.getElementById("gridContainer")
 const searchBar = document.getElementById("searchBar")
 
+booksContainer.innerHTML = `
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+    <div class="loading-placeholder"></div>
+`
+
 fetch(`/api/books`)
         .then(res => res.json())
         .then(({data}) => {
+            booksContainer.innerHTML = ""
             if(data.length == 0){
                 booksContainer.innerHTML = "<h1>No books yet</h1>"
                 return
@@ -24,10 +36,17 @@ fetch(`/api/books`)
         })
 
 searchBar.addEventListener("keyup", (e) => {
-    searchBar.addEventListener("load", (e) => {
-        booksContainer.innerHTML = "Loading..."
-    })
     const searchValue = searchBar.value
+    booksContainer.innerHTML = `
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+        <div class="loading-placeholder"></div>
+    `
     fetch(`/api/books?q=${searchValue}`)
         .then(res => res.json())
         .then(({data}) => {

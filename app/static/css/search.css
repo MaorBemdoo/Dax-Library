@@ -131,3 +131,22 @@ footer {
     height: 3rem;
     bottom: 0;
 }
+
+.loading-placeholder {
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loadingAnimation 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes loadingAnimation {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
