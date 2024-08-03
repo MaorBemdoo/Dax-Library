@@ -3,6 +3,7 @@ const modal = document.getElementById("modal")
 const alertDiv = document.getElementById("alert")
 const welcomeP = document.getElementById("welcome")
 const addBookBtn = document.getElementsByClassName("add-button")[0]
+const deleteBookBtn = document.getElementsByClassName("delete-button")[0]
 
 const currentUser = async() => {
     const res = await fetch("api/getme")
@@ -100,4 +101,24 @@ modal.querySelector("#create button").addEventListener("click", async(e) => {
         modal.querySelector("#content").value = ""
         modal.querySelector("#author").value = ""
     }
+})
+
+deleteBookBtn.addEventListener("click", (e) => {
+    modal.style.display = "grid"
+    document.getElementById("delete").style.display = "grid"
+})
+
+modal.querySelector("#delete button").addEventListener("click", (e) => {
+    const bookId = deleteBookBtn.getAttribute("data-book-id")
+    fetch(`/api/books/${bookId}`, {
+        method: "DELETE",
+    }).then(res => {
+        return res.json()
+    }).then(data => {
+        activateAndDeactivateAlert(data.message, "success")
+        location.reload()
+    }).catch(err => {
+        console.log(err)
+        activateAndDeactivateAlert(err.message, "error")
+    })
 })

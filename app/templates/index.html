@@ -32,6 +32,10 @@
             </div>
             <div id="delete">
                 <img src="/close_icon.png" class="cancel">
+                <div>Are you sure you want to delete this book?</div>
+                <div>
+                    <button>Delete</button>
+                </div>
             </div>
             <div id="create">
                 <img src="/close_icon.png" class="cancel">
@@ -58,8 +62,8 @@
                         <p>By {{book.author}}</p>
                         <div>
                             <img src="" alt="expand" onclick="location.assign(`/books/{{book.id}}`)">
-                            <img src="" alt="delete" class="delete-button">
-                            <img src="" alt="edit" class="edit-button">
+                            <img src="" alt="delete" class="delete-button" data-book-id="{{book.id}}">
+                            <img src="" alt="edit" class="edit-button" data-book-id="{{book.id}}">
                         </div>
                     </div>
                 {% endfor %}

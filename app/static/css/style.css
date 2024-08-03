@@ -126,6 +126,31 @@ main {
     background-color: #795548;
 }
 
+#modal #delete {
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 100px;
+}
+
+#modal #delete div:last-child {
+    width: 100%;
+    text-align: center;
+}
+
+#modal #delete button {
+    border: none;
+    background-color: red;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+}
+
+#modal #delete button:hover {
+    background-color: rgb(225, 30, 30);
+}
+
 #modal #create{
     width: 400px;
     text-align: center;
