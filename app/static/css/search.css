@@ -5,6 +5,7 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
+    gap: 2rem;
     min-height: 100vh;
     height: 100vh;
 }
