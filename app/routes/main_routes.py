@@ -40,6 +40,10 @@ def home_page():
         return render_template("/index.html", current_user=current_user)
     return redirect("/login")
 
+@main_bp.route("/books/<int:book_id>")
+def book_page(book_id):
+    return render_template("books/[...book].html", current_user=current_user, book_id=book_id)
+
 @main_bp.route('/<path:filename>')
 def main(filename):
     if filename.__contains__(".html") or not filename.__contains__("."):
