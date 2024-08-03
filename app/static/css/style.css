@@ -192,6 +192,48 @@ main {
     padding: 1rem;
     text-align: center;
     height: fit-content;
+    position: relative;
+}
+
+.book div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.book div img{
+    position: absolute;
+    opacity: 0;
+    transition: all 250ms ease-in;
+}
+
+.book div img:first-child{
+    top: 0;
+    right: 0;
+    transform: translate(50%, -50%);
+}
+
+.book div img:nth-child(2){
+    bottom: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+}
+
+.book div img:last-child{
+    bottom: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+}
+
+.book:hover div{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.book:hover div img{
+    transform: translate(0, 0);
+    opacity: 1;
 }
 
 .book h3 {
