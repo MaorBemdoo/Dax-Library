@@ -206,6 +206,7 @@ main {
 .book div img{
     position: absolute;
     opacity: 0;
+    cursor: pointer;
     transition: all 250ms ease-in;
 }
 
