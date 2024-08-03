@@ -35,9 +35,9 @@
             </div>
             <div id="create">
                 <img src="./close_icon.png" class="cancel">
-                <input type="text" placeholder="Title">
-                <textarea placeholder="Content"></textarea>
-                <input type="text" placeholder="By...">
+                <input type="text" placeholder="Title" id="title">
+                <textarea placeholder="Content" id="content"></textarea>
+                <input type="text" placeholder="By..." id="author">
                 <button>Submit</button>
             </div>
             <div id="edit">
@@ -54,7 +54,7 @@
                 {% for book in current_user.books %}
                     <div class="book">
                         <h3>{{book.title}}</h3>
-                        <p>{{book.content}}</p>
+                        <p>{{book.content[:20]}}...</p>
                         <p>By {{book.author}}</p>
                     </div>
                 {% endfor %}

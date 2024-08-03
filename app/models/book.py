@@ -6,7 +6,7 @@ class Book(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     author = db.Column(db.String(30), nullable=False)
     title = db.Column(db.String(64))
-    content = db.Column(db.String(1024))
+    content = db.Column(db.String(1000000000))
     createdAt = db.Column(db.DateTime, default=datetime.now())
     updatedAt = db.Column(db.DateTime, default=datetime.now())
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
