@@ -49,6 +49,12 @@ logoutBtn.addEventListener("click", (e) => {
     modal.getElementsByClassName("logout")[0].style.display = "grid"
 })
 
+const getUser = async(userId) => {
+    const res = await fetch(`/api/users/${userId}`)
+    const data = await res.json()
+    return data
+}
+
 fetch(`/api/books/${location.pathname.slice(7)}`)
     .then(res => {
         if(!res.ok){
@@ -57,11 +63,14 @@ fetch(`/api/books/${location.pathname.slice(7)}`)
         return res.json()
     })
     .then(data => {
-        console.log(data)
         document.head.getElementsByTagName("title")[0].innerHTML = `${data.title} - Dax`
         title.innerText = data.title
         content.innerText = data.content
         author.innerText = "Written by: " + data.author
+        getUser(data.user_id)
+            .then(data => {
+                user.innerText = "Uploaded by: " + data.full_name
+            })
     })
     .catch(err => {
         console.log(err)

@@ -116,6 +116,12 @@ header button {
     background-color: #795548;
 }
 
+main{
+    height: 100%;
+    text-align: center;
+    padding: 0 2rem;
+}
+
 footer {
     background-color: rgba(51, 34, 29, 0.9);
     color: white;
