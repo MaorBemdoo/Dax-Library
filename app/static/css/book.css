@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 100vh;
+    height: 100vh;
+    overflow: hidden;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(63, 46, 40, 0.9);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+header img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+header div {
+    display: flex;
+    gap: 2rem;
+}
+
+header button {
+    border: none;
+    background-color: #3e2723;
+    color: white;
+    border-radius: 4px;
+    padding: 0.8rem;
+    cursor: pointer;
+}
+
+#alert{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    opacity: 0;
+    padding: 1.3rem;
+    border-radius: 6px;
+    transition: all 250ms ease-in
+}
+
+#alert.active{
+    left: 40px;
+    opacity: 1;
+}
+
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    place-content: center;
+}
+
+#modal > * {
+    display: none;
+    position: relative;
+    border-radius: 6px;
+    background-color: white;
+}
+
+#modal .cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#modal .logout {
+    display: none;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    height: 100px;
+}
+
+#modal .logout div:last-child {
+    width: 100%;
+    text-align: center;
+}
+
+#modal .logout button {
+    border: none;
+    background-color: #3e2723;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+}
+
+#modal .logout button:hover {
+    background-color: #795548;
+}
+
+footer {
+    background-color: rgba(51, 34, 29, 0.9);
+    color: white;
+    text-align: center;
+    padding: 1rem 0;
+    width: 100%;
+}

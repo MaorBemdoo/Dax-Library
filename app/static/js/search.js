@@ -81,8 +81,20 @@ fetch(`/api/books`)
             console.log(err)
         })
 
-searchBar.addEventListener("input", (e) => {
-    const searchValue = searchBar.value
+function debounce(func, delay) {
+    let timeoutId;
+    return function(...args) {
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+        }
+        timeoutId = setTimeout(() => {
+            func.apply(this, args);
+        }, delay);
+    };
+}
+
+const debouncedSearch = debounce((e) => {
+    const searchValue = searchBar.value;
     booksContainer.innerHTML = `
         <div class="loading-placeholder"></div>
         <div class="loading-placeholder"></div>
@@ -92,28 +104,30 @@ searchBar.addEventListener("input", (e) => {
         <div class="loading-placeholder"></div>
         <div class="loading-placeholder"></div>
         <div class="loading-placeholder"></div>
-    `
+    `;
     fetch(`/api/books?q=${searchValue}`)
         .then(res => res.json())
         .then(({data}) => {
-            if(data.length == 0){
-                booksContainer.innerHTML = `<h1 style="grid-column: span 3;text-align: center;">No books for <b>"${searchValue}"</b></h1>`
-                return
+            if (data.length == 0) {
+                booksContainer.innerHTML = `<h1 style="grid-column: span 3;text-align: center;">No books for <b>"${searchValue}"</b></h1>`;
+                return;
             }
 
-            booksContainer.innerHTML = ""
-            
+            booksContainer.innerHTML = "";
+
             data.forEach(book => {
                 booksContainer.innerHTML += `
                     <a href="/books/${book.id}" class="grid-item"><div>
                         <h3>${book.title}</h3>
-                        <p>${book.content.slice(0, 20).slice(0, 20)}...</p>
+                        <p>${book.content.slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
                     </div></a>
-                `
-            })
+                `;
+            });
         })
         .catch(err => {
-            console.log(err)
-        })
-})
+            console.log(err);
+        });
+}, 300);
+
+searchBar.addEventListener("input", debouncedSearch);
