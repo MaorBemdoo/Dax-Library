@@ -286,6 +286,8 @@ main {
     opacity: 0;
     cursor: pointer;
     transition: all 250ms ease-in;
+    height: 40px;
+    width: 40px;
 }
 
 .book div img:first-child{

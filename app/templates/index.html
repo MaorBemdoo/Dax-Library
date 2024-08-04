@@ -65,9 +65,9 @@
                         <p>{{book.content[:20]}}...</p>
                         <p>By {{book.author}}</p>
                         <div>
-                            <img src="" alt="expand" onclick="location.assign(`/books/{{book.id}}`)">
-                            <img src="" alt="delete" class="delete-button" data-book-id="{{book.id}}">
-                            <img src="" alt="edit" class="edit-button" data-book-id="{{book.id}}">
+                            <img src="/read_more.png" title="Read more" alt="read more" onclick="location.assign(`/books/{{book.id}}`)">
+                            <img src="/delete.png" title="Delete" alt="delete" class="delete-button" data-book-id="{{book.id}}">
+                            <img src="/edit.png" title="Edit" alt="edit" class="edit-button" data-book-id="{{book.id}}">
                         </div>
                     </div>
                 {% endfor %}
