@@ -102,6 +102,7 @@ fetch(`/api/books`)
         })
         .catch(err => {
             console.log(err)
+            activateAndDeactivateAlert(err.message, "error")
         })
 
 function debounce(func, delay) {
@@ -150,6 +151,7 @@ const debouncedSearch = debounce((e) => {
         })
         .catch(err => {
             console.log(err);
+            activateAndDeactivateAlert(err.message, "error")
         });
 }, 300);
 
