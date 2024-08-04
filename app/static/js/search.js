@@ -30,22 +30,45 @@ modal.querySelectorAll(".cancel").forEach(btn => {
     })
 })
 
-modal.querySelector(".logout button").addEventListener("click", (e) => {
-    fetch("/api/logout").then(res => {
-        return res.json()
-    }).then(data => {
-        activateAndDeactivateAlert(data.message, "success")
-        location.assign("/login")
-    }).catch(err => {
-        console.log(err)
-        activateAndDeactivateAlert(err.message, "error")
-    })
-})
+const currentUser = async() => {
+    const res = await fetch("api/getme")
+    if(!res.ok){
+        throw await res.json()
+    }
+    const data = await res.json()
+    return data
+}
 
-logoutBtn.addEventListener("click", (e) => {
-    modal.style.display = "grid"
-    modal.getElementsByClassName("logout")[0].style.display = "grid"
-})
+currentUser()
+    .then(data => {
+        modal.querySelector(".logout button").addEventListener("click", (e) => {
+            fetch("/api/logout").then(res => {
+                return res.json()
+            }).then(data => {
+                activateAndDeactivateAlert(data.message, "success")
+                location.reload()
+            }).catch(err => {
+                console.log(err)
+                activateAndDeactivateAlert(err.message, "error")
+            })
+        })
+        
+        logoutBtn.addEventListener("click", (e) => {
+            modal.style.display = "grid"
+            modal.getElementsByClassName("logout")[0].style.display = "grid"
+        })
+    })
+
+const seeMore = async(bookId) => {
+    try{
+        const user = await currentUser()
+        location.assign(`/books/${bookId}`)
+    }catch(err){
+        modal.style.display = "grid"
+        modal.getElementsByClassName("auth")[0].style.display = "grid"
+    }
+
+}
 
 booksContainer.innerHTML = `
     <div class="loading-placeholder"></div>
@@ -69,11 +92,11 @@ fetch(`/api/books`)
     
             data.forEach(book => {
                 booksContainer.innerHTML += `
-                    <a href="/books/${book.id}" class="grid-item"><div>
+                    <div onclick="seeMore(${book.id})" class="grid-item">
                         <h3>${book.title}</h3>
                         <p>${book.content.slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
-                    </div></a>
+                    </div>
                 `
             })
         })
@@ -117,11 +140,11 @@ const debouncedSearch = debounce((e) => {
 
             data.forEach(book => {
                 booksContainer.innerHTML += `
-                    <a href="/books/${book.id}" class="grid-item"><div>
+                    <div onclick="seeMore(${book.id})" class="grid-item">
                         <h3>${book.title}</h3>
                         <p>${book.content.slice(0, 20)}...</p>
                         <p>By ${book.author}</p>
-                    </div></a>
+                    </div>
                 `;
             });
         })

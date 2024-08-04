@@ -42,7 +42,9 @@ def home_page():
 
 @main_bp.route("/books/<int:book_id>")
 def book_page(book_id):
-    return render_template("books/[...book].html", current_user=current_user, book_id=book_id)
+    if current_user.is_authenticated:
+        return render_template("books/[...book].html", current_user=current_user, book_id=book_id)
+    return redirect("/login")
 
 @main_bp.route('/<path:filename>')
 def main(filename):

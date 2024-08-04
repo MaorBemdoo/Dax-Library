@@ -1,52 +1,61 @@
 <!DOCTYPE html>
-{% if not current_user.is_authenticated %}
-    <script>
-        location.assign("/login")
-    </script>
-{% else %}
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Search - Dax</title>
-        <link rel="stylesheet" href="/search.css">
-        <link rel="icon" href="/logo.png">
-    </head>
-    <body>
-        <header>
-            <a href="/"><img src="/logo.png" alt="logo"></a>
-            <nav>
-                <a href="/search">Discover</a>
-            </nav>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search - Dax</title>
+    <link rel="stylesheet" href="/search.css">
+    <link rel="icon" href="/logo.png">
+</head>
+<body>
+    <header>
+        <a href="/"><img src="/logo.png" alt="logo"></a>
+        <nav>
+            <a href="/search">Discover</a>
+        </nav>
+        {% if current_user.is_authenticated %}
             <div>
                 <p id="welcome">Welcome, {{current_user.full_name}}</p>
                 <button id="logout">Logout</button>
             </div>
-        </header>
+        {% else %}
+            <div style="display: flex; gap: 1rem; align-items:center;">
+                <a href="/login">Login</a>
+                <button onclick="location.assign('/register')">Register</button>
+            </div>
+        {% endif %}
+    </header>
 
-        <div id="alert"></div>
+    <div id="alert"></div>
 
-        <div id="modal">
-            <div class="logout">
-                <img src="/close_icon.png" class="cancel">
-                <div>Are you sure you want to logout?</div>
-                <div>
-                    <button>Logout</button>
-                </div>
+    <div id="modal">
+        <div class="logout">
+            <img src="/close_icon.png" class="cancel">
+            <div>Are you sure you want to logout?</div>
+            <div>
+                <button>Logout</button>
             </div>
         </div>
-
-        <main class="container">
-            <div class="search-container">
-                <input type="text" id="searchBar" placeholder="Search...">
+        <div class="auth">
+            <img src="/close_icon.png" class="cancel">
+            <p>You must be logged in to see details of the book</p>
+            <div>
+                <a href="/login"><button>Login</button></a>
+                <a href="/register"><button>Register</button></a>
             </div>
-            <div class="grid-container" id="gridContainer"></div>
-        </main>
-        <footer>
-            <p>&copy; 2024 Dax Library. All rights reserved.</p>
-        </footer>
-        <script src="/search.js"></script>
-    </body>
-    </html>
-{% endif %}
+        </div>
+    </div>
+
+    <main class="container">
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search...">
+        </div>
+        <div class="grid-container" id="gridContainer"></div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Dax Library. All rights reserved.</p>
+    </footer>
+    <script src="/search.js"></script>
+</body>
+</html>

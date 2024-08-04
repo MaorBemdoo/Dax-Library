@@ -1,6 +1,10 @@
 const logoutBtn = document.getElementById("logout")
 const modal = document.getElementById("modal")
 const alertDiv = document.getElementById("alert")
+const title = document.getElementById("title")
+const content = document.getElementById("content")
+const author = document.getElementById("author")
+const user = document.getElementById("user")
 
 const activateAndDeactivateAlert = (text, type) => {
     alertDiv.innerText = text
@@ -55,6 +59,9 @@ fetch(`/api/books/${location.pathname.slice(7)}`)
     .then(data => {
         console.log(data)
         document.head.getElementsByTagName("title")[0].innerHTML = `${data.title} - Dax`
+        title.innerText = data.title
+        content.innerText = data.content
+        author.innerText = "Written by: " + data.author
     })
     .catch(err => {
         console.log(err)

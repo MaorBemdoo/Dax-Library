@@ -133,6 +133,32 @@ header button {
     background-color: #795548;
 }
 
+#modal .auth {
+    display: none;
+    align-items: center;
+    text-align: center;
+    width: 400px;
+    padding: 1rem;
+}
+
+#modal .auth div:last-child {
+    width: 100%;
+    text-align: center;
+}
+
+#modal .auth button {
+    border: none;
+    background-color: #3e2723;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+}
+
+#modal .auth button:hover {
+    background-color: #795548;
+}
+
 .container {
     display: flex;
     flex-direction: column;
