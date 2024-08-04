@@ -5,6 +5,10 @@ An E-library web app to add and search various books from different categories
 
 1. Add books
 2. Search books
+3. Update book
+4. Delete book
+5. Login and register users
+6. View book details
 
 ## Technologies, Languages and Tools used
 
@@ -46,14 +50,17 @@ cp .env.example .env
 python run.py
 ```
 
-<!-- ## Demo
+## Demo
 
 <div align="center">
-    <img src="src/assets/desktopScreenshot.jpg" alt="Desktop Screenshot">
-    <img src="src/assets/questionScreenshot.jpg" alt="Question Screenshot">
+    <img src="app/static/img/login_page.png" alt="Login Page Screenshot">
+    <img src="app/static/img/register_page.png" alt="Register Page Screenshot">
+    <img src="app/static/img/home_page.png" alt="Home Page Screenshot">
+    <img src="app/static/img/search_page.png" alt="Search Page Screenshot">
+    <img src="app/static/img/book_page.png" alt="Book Page Screenshot">
 </div>
 
-**[Demo Link](https://quizon.vercel.app)** -->
+**[Demo Link](https://dax-library.onrender.com)**
 
 ## Contributors
 
