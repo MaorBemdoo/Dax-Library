@@ -11,6 +11,22 @@ body{
 .clearfix:after{clear:both;display:block}
 a{color:inherit;text-decoration:none}
 
+#alert{
+    position: absolute;
+    top: 40px;
+    left: 0;
+    opacity: 0;
+    padding: 1.3rem;
+    border-radius: 6px;
+    transition: all 250ms ease-in;
+    color: white;
+}
+
+#alert.active{
+    left: 40px;
+    opacity: 1;
+}
+
 .login-wrap{
 	width:100%;
 	margin:auto;
