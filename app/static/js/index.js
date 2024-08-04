@@ -3,10 +3,17 @@ const modal = document.getElementById("modal")
 const alertDiv = document.getElementById("alert")
 const welcomeP = document.getElementById("welcome")
 const addBookBtn = document.getElementsByClassName("add-button")[0]
-const deleteBookBtn = document.getElementsByClassName("delete-button")[0]
+const deleteBookBtn = document.querySelectorAll(".delete-button")
+const editBookBtn = document.querySelectorAll(".edit-button")
 
 const currentUser = async() => {
     const res = await fetch("api/getme")
+    const data = await res.json()
+    return data
+}
+
+const getBook = async(bookId) => {
+    const res = await fetch(`api/books/${bookId}`)
     const data = await res.json()
     return data
 }
@@ -103,13 +110,16 @@ modal.querySelector("#create button").addEventListener("click", async(e) => {
     }
 })
 
-deleteBookBtn.addEventListener("click", (e) => {
-    modal.style.display = "grid"
-    document.getElementById("delete").style.display = "grid"
+deleteBookBtn.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+        modal.style.display = "grid"
+        document.getElementById("delete").style.display = "grid"
+        document.getElementById("delete").getElementsByTagName("button")[0].setAttribute("data-book-id", btn.getAttribute("data-book-id"))
+    })
 })
 
 modal.querySelector("#delete button").addEventListener("click", (e) => {
-    const bookId = deleteBookBtn.getAttribute("data-book-id")
+    const bookId = e.target.getAttribute("data-book-id")
     fetch(`/api/books/${bookId}`, {
         method: "DELETE",
     }).then(res => {
@@ -121,4 +131,47 @@ modal.querySelector("#delete button").addEventListener("click", (e) => {
         console.log(err)
         activateAndDeactivateAlert(err.message, "error")
     })
+})
+
+editBookBtn.forEach(btn => {
+    btn.addEventListener("click", async(e) => {
+        const book = await getBook(btn.getAttribute("data-book-id"))
+        modal.querySelector("#edit-title").value = book.title
+        modal.querySelector("#edit-content").value = book.content
+        modal.querySelector("#edit-author").value = book.author
+        modal.style.display = "grid"
+        document.getElementById("edit").style.display = "grid"
+        modal.querySelector("#edit button").setAttribute("data-book-id", btn.getAttribute("data-book-id"))
+    })
+})
+
+modal.querySelector("#edit button").addEventListener("click", async(e) => {
+    const title = modal.querySelector("#edit-title").value
+    const content = modal.querySelector("#edit-content").value
+    const author = modal.querySelector("#edit-author").value
+    const bookId = modal.querySelector("#edit button").getAttribute("data-book-id")
+
+    try{
+        const res = await fetch(`/api/books/${bookId}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                title, content, author
+            })
+        })
+    
+        const data = await res.json()
+
+        if(!res.ok){
+            throw data.message
+        }
+    
+        activateAndDeactivateAlert(data.message, "success")
+        location.reload()
+    }catch(err){
+        console.log(err)
+        activateAndDeactivateAlert(err.message, "error")
+    }
 })

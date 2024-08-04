@@ -204,6 +204,58 @@ main {
     background-color: #795548;
 }
 
+#modal #edit{
+    width: 400px;
+    text-align: center;
+}
+
+#modal #edit input{
+    height: 30px;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #3e2723;
+    padding: .7rem;
+    font-size: 1.2rem;
+}
+
+#modal #edit input:focus{
+    border: 1px solid #3e2723;
+}
+
+#modal #edit input:nth-child(2){
+    background-color: lightgrey;
+}
+
+#modal #edit textarea{
+    resize: none;
+    height: 200px;
+    border: none;
+    border-bottom: 1px solid #3e2723;;
+    outline: none;
+    padding: .7rem;
+    font-size: 1.2rem;
+}
+
+#modal #edit textarea:focus{
+    border: 1px solid #3e2723;
+}
+
+#modal #edit button{
+    border: none;
+    width: 120px;
+    background-color: #3e2723;
+    border-radius: 4px;
+    padding: 0.7rem;
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    margin: .5rem auto;
+}
+
+#modal #edit button:hover{
+    background-color: #795548;
+}
+
 .no-book{
     display: grid;
     place-items: center;
